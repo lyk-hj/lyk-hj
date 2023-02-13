@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<mapping>
+	<map>
+		<framework name="input" output_port_id="input" />
+		<IR name="input" output_port_id="0" />
+	</map>
+	<map>
+		<framework name="conv.0.weight" output_port_id="conv.0.weight" />
+		<IR name="conv.0.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="/conv/conv.0/Conv" output_port_id="/conv/conv.0/Conv_output_0" />
+		<IR name="/conv/conv.0/Conv" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="/conv/conv.1/Relu" output_port_id="/conv/conv.1/Relu_output_0" />
+		<IR name="/conv/conv.1/Relu" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="conv.2.weight" output_port_id="conv.2.weight" />
+		<IR name="conv.2.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="/conv/conv.2/Conv" output_port_id="/conv/conv.2/Conv_output_0" />
+		<IR name="/conv/conv.2/Conv" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="/conv/conv.3/Relu" output_port_id="/conv/conv.3/Relu_output_0" />
+		<IR name="/conv/conv.3/Relu" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="conv.4.weight" output_port_id="conv.4.weight" />
+		<IR name="conv.4.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="/conv/conv.4/Conv" output_port_id="/conv/conv.4/Conv_output_0" />
+		<IR name="/conv/conv.4/Conv" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="/conv/conv.5/MaxPool" output_port_id="/conv/conv.5/MaxPool_output_0" />
+		<IR name="/conv/conv.5/MaxPool" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="/conv/conv.6/Relu" output_port_id="/conv/conv.6/Relu_output_0" />
+		<IR name="/conv/conv.6/Relu" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="conv.7.weight" output_port_id="conv.7.weight" />
+		<IR name="conv.7.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="/conv/conv.7/Conv" output_port_id="/conv/conv.8/Pad_output_0" />
+		<IR name="/conv/conv.7/Conv" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="/conv/conv.7/Conv" output_port_id="/conv/conv.7/Conv_output_0" />
+		<IR name="/conv/conv.7/Conv" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="/conv/conv.8/AveragePool" output_port_id="/conv/conv.8/AveragePool_output_0" />
+		<IR name="/conv/conv.8/AveragePool" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="/conv/conv.9/Flatten" output_port_id="/conv/conv.9/Flatten_output_0" />
+		<IR name="/conv/conv.9/Flatten" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="/bn/BatchNormalization" output_port_id="/bn/BatchNormalization_output_0" />
+		<IR name="/bn/BatchNormalization" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="dense.1.weight" output_port_id="dense.1.weight" />
+		<IR name="dense.1.weight" output_port_id="1" />
+	</map>
+	<map>
+		<framework name="/dense/dense.1/Gemm" output_port_id="/dense/dense.1/Gemm_output_0" />
+		<IR name="/dense/dense.1/Gemm" output_port_id="2" />
+	</map>
+	<map>
+		<framework name="output" output_port_id="output" />
+		<IR name="output" output_port_id="2" />
+	</map>
+</mapping>

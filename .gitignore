@@ -1,0 +1,26 @@
+#需要忽略版本更新的文件
+
+#ignore all .json file
+*.json
+
+#ignore all .log file
+*.log
+
+#ignore all build file
+/cmake-build-debug/
+/build/
+/cmake-build/
+/cmake-build-release/
+
+#ignore all file in .idea
+/.idea/
+
+#ignore cmake file
+#CMakeLists.txt
+
+#ignore huge file such as record and so on
+/sample
+
+#ignore record file
+*.avi
+
