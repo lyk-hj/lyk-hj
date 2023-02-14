@@ -2,10 +2,10 @@
 <net name="torch_jit" version="11">
 	<layers>
 		<layer id="0" name="input" type="Parameter" version="opset1">
-			<data shape="1,1,30,20" element_type="f32" />
+			<data shape="?,1,30,20" element_type="f32" />
 			<output>
 				<port id="0" precision="FP32" names="input">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>1</dim>
 					<dim>30</dim>
 					<dim>20</dim>
@@ -27,7 +27,7 @@
 			<data strides="1, 1" dilations="1, 1" pads_begin="0, 0" pads_end="0, 0" auto_pad="explicit" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>1</dim>
 					<dim>30</dim>
 					<dim>20</dim>
@@ -41,7 +41,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>28</dim>
 					<dim>18</dim>
@@ -63,7 +63,7 @@
 			<data auto_broadcast="numpy" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>28</dim>
 					<dim>18</dim>
@@ -77,7 +77,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32" names="/conv/conv.0/Conv_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>28</dim>
 					<dim>18</dim>
@@ -87,7 +87,7 @@
 		<layer id="5" name="/conv/conv.1/Relu" type="ReLU" version="opset1">
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>28</dim>
 					<dim>18</dim>
@@ -95,7 +95,7 @@
 			</input>
 			<output>
 				<port id="1" precision="FP32" names="/conv/conv.1/Relu_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>28</dim>
 					<dim>18</dim>
@@ -117,7 +117,7 @@
 			<data strides="1, 1" dilations="1, 1" pads_begin="0, 0" pads_end="0, 0" auto_pad="explicit" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>28</dim>
 					<dim>18</dim>
@@ -131,7 +131,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>26</dim>
 					<dim>16</dim>
@@ -153,7 +153,7 @@
 			<data auto_broadcast="numpy" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>26</dim>
 					<dim>16</dim>
@@ -167,7 +167,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32" names="/conv/conv.2/Conv_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>26</dim>
 					<dim>16</dim>
@@ -177,7 +177,7 @@
 		<layer id="10" name="/conv/conv.3/Relu" type="ReLU" version="opset1">
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>26</dim>
 					<dim>16</dim>
@@ -185,7 +185,7 @@
 			</input>
 			<output>
 				<port id="1" precision="FP32" names="/conv/conv.3/Relu_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>26</dim>
 					<dim>16</dim>
@@ -207,7 +207,7 @@
 			<data strides="1, 1" dilations="1, 1" pads_begin="0, 0" pads_end="0, 0" auto_pad="explicit" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>16</dim>
 					<dim>26</dim>
 					<dim>16</dim>
@@ -221,7 +221,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>32</dim>
 					<dim>24</dim>
 					<dim>14</dim>
@@ -243,7 +243,7 @@
 			<data auto_broadcast="numpy" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>32</dim>
 					<dim>24</dim>
 					<dim>14</dim>
@@ -257,7 +257,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32" names="/conv/conv.4/Conv_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>32</dim>
 					<dim>24</dim>
 					<dim>14</dim>
@@ -268,7 +268,7 @@
 			<data strides="2, 2" dilations="1, 1" pads_begin="0, 0" pads_end="0, 0" kernel="2, 2" rounding_type="floor" auto_pad="explicit" index_element_type="i64" axis="0" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>32</dim>
 					<dim>24</dim>
 					<dim>14</dim>
@@ -276,13 +276,13 @@
 			</input>
 			<output>
 				<port id="1" precision="FP32" names="/conv/conv.5/MaxPool_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>32</dim>
 					<dim>12</dim>
 					<dim>7</dim>
 				</port>
 				<port id="2" precision="I64">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>32</dim>
 					<dim>12</dim>
 					<dim>7</dim>
@@ -292,7 +292,7 @@
 		<layer id="16" name="/conv/conv.6/Relu" type="ReLU" version="opset1">
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>32</dim>
 					<dim>12</dim>
 					<dim>7</dim>
@@ -300,7 +300,7 @@
 			</input>
 			<output>
 				<port id="1" precision="FP32" names="/conv/conv.6/Relu_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>32</dim>
 					<dim>12</dim>
 					<dim>7</dim>
@@ -322,7 +322,7 @@
 			<data strides="2, 1" dilations="1, 1" pads_begin="0, 0" pads_end="0, 0" auto_pad="explicit" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>32</dim>
 					<dim>12</dim>
 					<dim>7</dim>
@@ -336,7 +336,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 					<dim>5</dim>
 					<dim>5</dim>
@@ -358,7 +358,7 @@
 			<data auto_broadcast="numpy" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 					<dim>5</dim>
 					<dim>5</dim>
@@ -372,7 +372,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32" names="/conv/conv.7/Conv_output_0,/conv/conv.8/Pad_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 					<dim>5</dim>
 					<dim>5</dim>
@@ -383,7 +383,7 @@
 			<data kernel="5, 5" strides="5, 5" pads_begin="0, 0" pads_end="0, 0" exclude-pad="true" auto_pad="explicit" rounding_type="floor" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 					<dim>5</dim>
 					<dim>5</dim>
@@ -391,7 +391,7 @@
 			</input>
 			<output>
 				<port id="1" precision="FP32" names="/conv/conv.8/AveragePool_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -410,7 +410,7 @@
 			<data special_zero="true" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 					<dim>1</dim>
 					<dim>1</dim>
@@ -421,12 +421,12 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32" names="/conv/conv.9/Flatten_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="24" name="Constant_1745" type="Const" version="opset1">
+		<layer id="24" name="Constant_1755" type="Const" version="opset1">
 			<data element_type="f32" shape="1, 64" offset="102480" size="256" />
 			<output>
 				<port id="0" precision="FP32">
@@ -435,11 +435,11 @@
 				</port>
 			</output>
 		</layer>
-		<layer id="25" name="Multiply_1749" type="Multiply" version="opset1">
+		<layer id="25" name="Multiply_1759" type="Multiply" version="opset1">
 			<data auto_broadcast="numpy" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 				</port>
 				<port id="1" precision="FP32">
@@ -449,12 +449,12 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="26" name="Constant_1754" type="Const" version="opset1">
+		<layer id="26" name="Constant_1764" type="Const" version="opset1">
 			<data element_type="f32" shape="1, 64" offset="102736" size="256" />
 			<output>
 				<port id="0" precision="FP32">
@@ -467,7 +467,7 @@
 			<data auto_broadcast="numpy" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 				</port>
 				<port id="1" precision="FP32">
@@ -477,7 +477,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32" names="/bn/BatchNormalization_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 				</port>
 			</output>
@@ -495,7 +495,7 @@
 			<data transpose_a="false" transpose_b="true" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>64</dim>
 				</port>
 				<port id="1" precision="FP32">
@@ -505,12 +505,12 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 			</output>
 		</layer>
-		<layer id="30" name="Constant_1818" type="Const" version="opset1">
+		<layer id="30" name="Constant_1828" type="Const" version="opset1">
 			<data element_type="f32" shape="1, 6" offset="104528" size="24" />
 			<output>
 				<port id="0" precision="FP32">
@@ -523,7 +523,7 @@
 			<data auto_broadcast="numpy" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 				<port id="1" precision="FP32">
@@ -533,7 +533,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32" names="/dense/dense.1/Gemm_output_0">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 			</output>
@@ -550,7 +550,7 @@
 			<data special_zero="true" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 				<port id="1" precision="I64">
@@ -559,7 +559,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 			</output>
@@ -568,13 +568,13 @@
 			<data axis="1" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 			</input>
 			<output>
 				<port id="1" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 			</output>
@@ -583,7 +583,7 @@
 			<data output_type="i64" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 			</input>
@@ -597,7 +597,7 @@
 			<data special_zero="false" />
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 				<port id="1" precision="I64">
@@ -606,7 +606,7 @@
 			</input>
 			<output>
 				<port id="2" precision="FP32" names="output">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 			</output>
@@ -614,7 +614,7 @@
 		<layer id="37" name="output/sink_port_0" type="Result" version="opset1">
 			<input>
 				<port id="0" precision="FP32">
-					<dim>1</dim>
+					<dim>-1</dim>
 					<dim>6</dim>
 				</port>
 			</input>
@@ -664,7 +664,6 @@
 		<MO_version value="2022.3.0-9052-9752fafe8eb-releases/2022/3" />
 		<Runtime_version value="2022.3.0-9052-9752fafe8eb-releases/2022/3" />
 		<conversion_parameters>
-			<data_type value="FP32" />
 			<framework value="onnx" />
 			<input_model value="DIR\2023_2_1_hj_num_2.onnx" />
 			<model_name value="2023_2_1_hj_num_2" />

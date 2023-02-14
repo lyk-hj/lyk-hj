@@ -12,20 +12,18 @@ void printInputAndOutputsInfo(const ov::Model &network) {
     for (const ov::Output<const ov::Node> input : inputs) {
         const std::string name = input.get_names().empty() ? "NONE" : input.get_any_name();
         const ov::element::Type type = input.get_element_type();
-        const ov::Shape shape = input.get_shape();
+//        const ov::Shape shape = input.get_shape();
         slog::info << "        input name: " << name << "\t"\
- << "        input type: " << type << "\t"\
- << "        input shape: " << shape << slog::endl;
+ << "        input type: " << type << "\t" << slog::endl;
     }
 
     const std::vector<ov::Output<const ov::Node>> outputs = network.outputs();
     for (const ov::Output<const ov::Node> output : outputs) {
         const std::string name = output.get_names().empty() ? "NONE" : output.get_any_name();
         const ov::element::Type type = output.get_element_type();
-        const ov::Shape shape = output.get_shape();
+//        const ov::Shape shape = output.get_shape();
         slog::info << "        output name: " << name << "\t"\
- << "        output type: " << type << "\t"\
- << "        output shape: " << shape << slog::endl;
+ << "        output type: " << type << "\t" << slog::endl;
     }
 }
 
@@ -36,8 +34,8 @@ int main() {
                                                 "../samples/2.png",
                                                 "../samples/6_7.png",
                                                 "../samples/4.png"};
-        std::string model_path = "../ov_models/2023_2_1_hj_num_2.xml";
-        std::string device_name = "GPU";
+        std::string model_path = "../ov_fp32_model/2023_2_1_hj_num_2.xml";
+        std::string device_name = "CPU";
         std::string labeName[]{"0", "1", "2", "3", "4", "6"};
 
         //!< preparation
@@ -47,8 +45,8 @@ int main() {
         slog::info << "Loading model files:" << model_path << slog::endl;
         std::shared_ptr<ov::Model> model = core.read_model(model_path);
         printInputAndOutputsInfo(*model);
-        OPENVINO_ASSERT(model->inputs().size() == 1, "Model with 1 input");
-        OPENVINO_ASSERT(model->outputs().size() == 1, "Model with 1 output");
+//        OPENVINO_ASSERT(model->inputs().size() == 1, "Model with 1 input");
+//        OPENVINO_ASSERT(model->outputs().size() == 1, "Model with 1 output");
 
         //!< build model
         const ov::Layout tensor_layout{"NHWC"};
@@ -66,6 +64,7 @@ int main() {
         model = ppp.build();
 
         //!< obtain the valid data
+        ov::set_batch(model,1);
         ov::Shape input_shape = model->input().get_shape();
         const size_t input_width = input_shape[ov::layout::width_idx(tensor_layout)];
         const size_t input_height = input_shape[ov::layout::height_idx(tensor_layout)];
@@ -159,7 +158,7 @@ int main() {
 
         slog::info << "Completed async requests execution" << slog::endl;
 
-//!< Process output and Show result
+        //!< Process output and Show result
         slog::info<<"Complete Infer"<<slog::endl;
         const ov::Tensor &outputTensor = inferRequest.get_output_tensor();
         using tensor_otype = ov::fundamental_type_for<ov::element::Type_t::f32>;//float here
